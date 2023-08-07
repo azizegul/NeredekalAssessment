@@ -8,5 +8,7 @@ namespace Hotel.Domain.Domain.Entities
         public ContactInfoType InfoType { get; set; }
         public string Info { get; set; }
         public virtual Person Person { get; set; }
+        public virtual Hotel Hotel { get; set; }
+
     }
 }

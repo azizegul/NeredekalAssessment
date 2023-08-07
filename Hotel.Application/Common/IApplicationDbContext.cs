@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Infrastructure.Persistence
+namespace Hotel.Application.Common
 {
     public interface IApplicationDbContext
     {
-        DbSet<Person> Persons { get; set; }
+        DbSet<Domain.Domain.Entities.Person> Persons { get; set; }
 
-        DbSet<Contact> Contacts { get; set; }
+        DbSet<Domain.Domain.Entities.Contact> Contacts { get; set; }
         DbSet<Domain.Domain.Entities.Hotel> Hotels { get; set; }
 
 
