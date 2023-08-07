@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Application.Contact
+namespace Hotel.Application.Services.Contact
 {
     public class ContactRequestModel
     {

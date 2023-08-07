@@ -18,9 +18,7 @@ namespace Hotel.Infrastructure.Persistence.Configuration
 
             builder.Property(t => t.InfoType)
                 .IsRequired();
-
-            builder.Property(t => t.PersonId)
-                .IsRequired();
+          
         }
     }
 }

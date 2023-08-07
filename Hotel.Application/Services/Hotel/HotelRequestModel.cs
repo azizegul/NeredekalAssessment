@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Application.Hotel
+namespace Hotel.Application.Services.Hotel
 {
     public class HotelRequestModel
     {

@@ -1,13 +1,11 @@
-﻿using Hotel.Application.Common;
-using Hotel.Application.Common.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Application.Hotel
+namespace Hotel.Application.Services.Hotel
 {
     public class HotelService : IHotelService
     {
@@ -31,7 +29,7 @@ namespace Hotel.Application.Hotel
 
         public async Task<Domain.Domain.Entities.Hotel> ContactDetails(Guid id)
         {
-            var hotelDetails = _context.Hotels.Include(x=>x.Contacts).Where(x => x.Id == id).FirstOrDefault();
+            var hotelDetails = _context.Hotels.Include(x => x.Contacts).Where(x => x.Id == id).FirstOrDefault();
 
             return hotelDetails;
         }

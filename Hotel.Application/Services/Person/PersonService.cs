@@ -1,9 +1,6 @@
-﻿using Hotel.Application.Common;
-using Hotel.Application.Common.Interfaces;
-
-namespace Hotel.Application.Person
+﻿namespace Hotel.Application.Services.Person
 {
-    public class PersonService:IPersonService
+    public class PersonService : IPersonService
     {
         private readonly IPersonService _personService;
         private readonly IApplicationDbContext _context;

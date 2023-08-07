@@ -1,6 +1,5 @@
-﻿using Hotel.Application.Hotel;
+﻿using Hotel.Application.Services.Hotel;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Hotel.Api.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace Hotel.Application.Common.Interfaces
+﻿namespace Hotel.Application.Services.Person
 {
     public interface IPersonService
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Application.Common
+namespace Hotel.Application
 {
     public interface IApplicationDbContext
     {

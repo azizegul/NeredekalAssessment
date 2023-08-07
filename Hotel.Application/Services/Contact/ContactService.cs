@@ -1,9 +1,7 @@
-﻿using Hotel.Application.Common;
-using Hotel.Application.Common.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Threading;
 
-namespace Hotel.Application.Contact
+namespace Hotel.Application.Services.Contact
 {
     public class ContactService : IContactService
     {
@@ -25,7 +23,7 @@ namespace Hotel.Application.Contact
 
         public async Task<Domain.Domain.Entities.Contact> Delete(Guid id, CancellationToken cancellationToken)
         {
-            var contact=  _applicationDbContext.Contacts.Find(id);
+            var contact = _applicationDbContext.Contacts.Find(id);
 
             contact.IsDeleted = true;
 

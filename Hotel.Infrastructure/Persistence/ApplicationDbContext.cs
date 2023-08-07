@@ -1,4 +1,5 @@
-﻿using Hotel.Domain.Domain.Entities;
+﻿using Hotel.Application;
+using Hotel.Domain.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hotel.Infrastructure.Persistence
@@ -10,10 +11,5 @@ namespace Hotel.Infrastructure.Persistence
         public DbSet<Person> Persons { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Domain.Domain.Entities.Hotel> Hotels { get; set; }
-
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            return await base.SaveChangesAsync(cancellationToken);
-        }
     }
 }
