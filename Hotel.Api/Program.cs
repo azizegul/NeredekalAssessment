@@ -1,10 +1,12 @@
 using Hotel.Application;
-using Hotel.Application.Services.Contact;
-using Hotel.Application.Services.Hotel;
-using Hotel.Application.Services.Person;
+using Hotel.Application.Services.Contact.Interface;
+using Hotel.Application.Services.Contact.Service;
+using Hotel.Application.Services.Hotel.Interface;
+using Hotel.Application.Services.Hotel.Service;
+using Hotel.Application.Services.Person.Interface;
+using Hotel.Application.Services.Person.Service;
 using Hotel.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,16 +19,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
+builder.Services.AddTransient<IHotelService, HotelService>();
+builder.Services.AddTransient<IContactService, ContactService>();
+builder.Services.AddTransient<IPersonService, PersonService>();
+
+
+
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
-
-//builder.Services.AddTransient<IContactService, ContactService>();
-//builder.Services.AddTransient<IPersonService, PersonService>();
-//builder.Services.AddTransient<IHotelService, HotelService>();
-
-
 
 var app = builder.Build();
 
