@@ -1,9 +1,6 @@
-﻿using Hotel.Api.Data.Common;
-using Hotel.Api.Data.Enums;
-
-namespace Hotel.Api.Data.Entities
+﻿namespace Hotel.Domain.Domain.Entities
 {
-    public class Contact : BaseEntity
+    public class Contact :BaseEntity
     {
         public Guid PersonId { get; set; }
         public ContactInfoType InfoType { get; set; }

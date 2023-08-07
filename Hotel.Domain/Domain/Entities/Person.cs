@@ -1,6 +1,10 @@
-﻿using Hotel.Api.Data.Common;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Hotel.Api.Data.Entities
+namespace Hotel.Domain.Domain.Entities
 {
     public class Person : BaseEntity
     {
