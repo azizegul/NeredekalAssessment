@@ -1,7 +1,6 @@
 ﻿
 using Hotel.Application.Services.Contact.Interface;
 using Hotel.Application.Services.Contact.Model;
-using Hotel.Domain.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hotel.Api.Controllers
@@ -16,9 +15,20 @@ namespace Hotel.Api.Controllers
             _contactService = contactService;
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(List<ContactModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Get()
+        {
+            var contacts = await _contactService.Get();
+
+            return Ok(contacts);
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(Domain.Domain.Entities.Contact), StatusCodes.Status201Created)]
-        public async Task<IActionResult> Add(ContactRequestModel requestModel)
+        public async Task<IActionResult> Add(ContactModel requestModel)
         {
             var contact = await _contactService.Add(requestModel);
 

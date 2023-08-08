@@ -2,7 +2,7 @@
 
 namespace Hotel.Application.Services.Contact.Model
 {
-    public class ContactRequestModel
+    public class ContactModel
     {
         public Guid HotelId { get; set; }
         public ContactInfoType InfoType { get; set; }

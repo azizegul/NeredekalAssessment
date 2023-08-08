@@ -1,5 +1,4 @@
-﻿using Hotel.Application.Services.Hotel.Model;
-using Hotel.Application.Services.Person.Model;
+﻿using Hotel.Application.Services.Person.Model;
 
 namespace Hotel.Application.Services.Person.Interface
 {

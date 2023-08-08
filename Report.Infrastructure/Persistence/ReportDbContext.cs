@@ -6,12 +6,12 @@ using Report.Infrastructure.Persistence.Settings;
 
 namespace Report.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IApplicationDbContext
+    public class ReportDbContext : IReportDbContext
     {
         private IMongoDatabase _db { get; set; }
         private MongoClient _mongoClient { get; set; }
 
-        public ApplicationDbContext(IOptions<MongoDbSettings> configuration)
+        public ReportDbContext(IOptions<MongoDbSettings> configuration)
         {
             _mongoClient = new MongoClient(configuration.Value.Connection);
             _db = _mongoClient.GetDatabase(configuration.Value.DatabaseName);

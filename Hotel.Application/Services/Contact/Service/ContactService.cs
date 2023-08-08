@@ -13,7 +13,7 @@ namespace Hotel.Application.Services.Contact.Service
             _context = context;
         }
 
-        public async Task<Domain.Domain.Entities.Contact> Add(ContactRequestModel requestModel)
+        public async Task<Domain.Domain.Entities.Contact> Add(ContactModel requestModel)
         {
             var contact = new Domain.Domain.Entities.Contact
             {
@@ -45,5 +45,18 @@ namespace Hotel.Application.Services.Contact.Service
             return contact.IsDeleted;
         }
 
+        public async Task<List<ContactModel>> Get()
+        {
+            var contacts= await _context.Contacts
+            .Where(x => x.IsDeleted == false)
+            .Select(x => new ContactModel()
+            {
+                HotelId = x.HotelId,
+                Info = x.Info,
+                InfoType = x.InfoType,
+            }).ToListAsync();
+
+            return contacts;
+        }
     }
 }

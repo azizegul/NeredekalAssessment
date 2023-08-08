@@ -1,6 +1,5 @@
 ﻿using Hotel.Application.Services.Person.Interface;
 using Hotel.Application.Services.Person.Model;
-using Hotel.Domain.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hotel.Application.Services.Person.Service

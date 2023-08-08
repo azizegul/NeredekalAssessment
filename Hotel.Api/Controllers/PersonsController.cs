@@ -1,9 +1,6 @@
-﻿using Hotel.Application.Services.Hotel.Model;
-using Hotel.Application.Services.Person.Interface;
+﻿using Hotel.Application.Services.Person.Interface;
 using Hotel.Application.Services.Person.Model;
-using Hotel.Domain.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.RegularExpressions;
 
 namespace Hotel.Api.Controllers
 {
