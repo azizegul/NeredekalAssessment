@@ -11,6 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
+builder.Services.Configure<ApplicationDbContext>(
+          builder.Configuration.GetSection("MongoDbSettings"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -11,8 +11,8 @@ namespace Report.Domain.Entities
     {
         public string Location { get; set; }
 
-        public int RegisteredPersonCount { get; set; }
+        public int RegisteredHotelCount { get; set; }
 
-        public int RegisteredPersonPhoneCount { get; set; }
+        public int RegisteredPhoneCount { get; set; }
     }
 }
