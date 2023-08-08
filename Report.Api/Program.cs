@@ -1,5 +1,11 @@
+using MongoDB.Driver;
 using Report.Application;
+using Report.Application.Services.PrepareReport.Interface;
+using Report.Application.Services.PrepareReport.Service;
+using Report.Application.Services.Report.Interface;
+using Report.Application.Services.Report.Service;
 using Report.Infrastructure.Persistence;
+using Report.Infrastructure.Persistence.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +17,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
+builder.Services.AddTransient<IPrepareReportService, PrepareReportService>();
+builder.Services.AddTransient<IReportService, ReportService>();
+
 builder.Services.Configure<ApplicationDbContext>(
           builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.AddSingleton<IMongoDatabase>(options => {
+    var settings = builder.Configuration.GetSection("MongoDBSettings").Get<MongoDbSettings>();
+    var client = new MongoClient(settings.Connection);
+    return client.GetDatabase(settings.DatabaseName);
+});
 
 var app = builder.Build();
 
