@@ -1,8 +1,7 @@
-﻿namespace Report.Domain.Enums
+﻿namespace Report.Domain.Enums;
+
+public enum ReportStatus
 {
-    public enum ReportStatus
-    {
-        Preparing = 1,
-        Completed = 2
-    }
+    Preparing = 1,
+    Completed = 2
 }

@@ -1,13 +1,12 @@
 ﻿using Hotel.Domain.Domain.Enums;
 
-namespace Report.Application.Services.Report.Models
+namespace Report.Application.Services.Report.Models;
+
+public class HotelsDto
 {
-    public class HotelsDto
-    {
-        public Guid HotelId { get; set; }
+    public Guid HotelId { get; set; }
 
-        public string Info { get; set; }
+    public string Info { get; set; }
 
-        public ContactInfoType InfoType { get; set; }
-    }
+    public ContactInfoType InfoType { get; set; }
 }

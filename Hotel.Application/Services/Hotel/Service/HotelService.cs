@@ -2,56 +2,53 @@
 using Hotel.Application.Services.Hotel.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hotel.Application.Services.Hotel.Service
+namespace Hotel.Application.Services.Hotel.Service;
+
+public class HotelService : IHotelService
 {
-    public class HotelService : IHotelService
+    private readonly IApplicationDbContext _context;
+
+    public HotelService(IApplicationDbContext context)
     {
-        private readonly IApplicationDbContext _context;
+        _context = context;
+    }
 
-        public HotelService(IApplicationDbContext context)
+    public async Task<Domain.Domain.Entities.Hotel> Add(HotelRequestModel requestModel)
+    {
+
+        Domain.Domain.Entities.Hotel hotel = new()
         {
-            _context = context;
-        }
+            Name = requestModel.Name
+        };
 
-        public async Task<Domain.Domain.Entities.Hotel> Add(HotelRequestModel requestModel)
-        {
+        await _context.Hotels.AddAsync(hotel);
 
-            Domain.Domain.Entities.Hotel hotel = new()
-            {
-                Name = requestModel.Name
-            };
+        await _context.SaveChangesAsync();
 
-            await _context.Hotels.AddAsync(hotel);
+        return hotel;
 
-            await _context.SaveChangesAsync();
+    }
 
-            return hotel;
+    public async Task<Domain.Domain.Entities.Hotel> Get(Guid id)
+    {
+        var hotelDetails = await _context.Hotels.Include(x => x.Contacts.Where(c => !c.IsDeleted)).Include(x => x.Persons.Where(c => !c.IsDeleted)).FirstOrDefaultAsync(h => h.Id == id);
 
-        }
+        return hotelDetails;
+    }
 
-        public async Task<Domain.Domain.Entities.Hotel> ContactDetails(Guid id)
-        {
-            //TODO: Global query filter eklenecek.
+    public async Task<bool> Delete(Guid id)
+    {
+        var hotel = await _context.Hotels.FindAsync(id);
 
-            var hotelDetails = await _context.Hotels.Include(x => x.Contacts.Where(c => !c.IsDeleted)).FirstOrDefaultAsync(h => h.Id == id);
+        if (hotel == null)
+            throw new Exception("Hotel Not Found.");
 
-            return hotelDetails;
-        }
+        hotel.IsDeleted = true;
 
-        public async Task<bool> Delete(Guid id)
-        {
-            var hotel = await _context.Hotels.FindAsync(id);
+        _context.Hotels.Update(hotel);
 
-            if (hotel == null)
-                throw new Exception("Hotel Not Found.");
+        await _context.SaveChangesAsync();
 
-            hotel.IsDeleted = true;
-
-            _context.Hotels.Update(hotel);
-
-            await _context.SaveChangesAsync();
-
-            return hotel.IsDeleted;
-        }
+        return hotel.IsDeleted;
     }
 }

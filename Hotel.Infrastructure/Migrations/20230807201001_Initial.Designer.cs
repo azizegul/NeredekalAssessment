@@ -9,135 +9,134 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Hotel.Infrastructure.Migrations
+namespace Hotel.Infrastructure.Migrations;
+
+[DbContext(typeof(ApplicationDbContext))]
+[Migration("20230807201001_Initial")]
+partial class Initial
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230807201001_Initial")]
-    partial class Initial
+    /// <inheritdoc />
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.9")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+        modelBuilder
+            .HasAnnotation("ProductVersion", "7.0.9")
+            .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+        SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Hotel.Domain.Domain.Entities.Contact", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+        modelBuilder.Entity("Hotel.Domain.Domain.Entities.Contact", b =>
+            {
+                b.Property<Guid>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime>("CreatedDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<Guid>("HotelId")
-                        .HasColumnType("uniqueidentifier");
+                b.Property<Guid>("HotelId")
+                    .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Info")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Info")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("InfoType")
-                        .HasColumnType("int");
+                b.Property<int>("InfoType")
+                    .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                b.Property<bool>("IsDeleted")
+                    .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
+                b.HasIndex("HotelId");
 
-                    b.ToTable("Contacts");
-                });
+                b.ToTable("Contacts");
+            });
 
-            modelBuilder.Entity("Hotel.Domain.Domain.Entities.Hotel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+        modelBuilder.Entity("Hotel.Domain.Domain.Entities.Hotel", b =>
+            {
+                b.Property<Guid>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime>("CreatedDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                b.Property<bool>("IsDeleted")
+                    .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Hotels");
-                });
+                b.ToTable("Hotels");
+            });
 
-            modelBuilder.Entity("Hotel.Domain.Domain.Entities.Person", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+        modelBuilder.Entity("Hotel.Domain.Domain.Entities.Person", b =>
+            {
+                b.Property<Guid>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CompanyTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("CompanyTitle")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+                b.Property<DateTime>("CreatedDate")
+                    .HasColumnType("datetime2");
 
-                    b.Property<Guid>("HotelId")
-                        .HasColumnType("uniqueidentifier");
+                b.Property<Guid>("HotelId")
+                    .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                b.Property<bool>("IsDeleted")
+                    .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Surname")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
+                b.HasIndex("HotelId");
 
-                    b.ToTable("Persons");
-                });
+                b.ToTable("Persons");
+            });
 
-            modelBuilder.Entity("Hotel.Domain.Domain.Entities.Contact", b =>
-                {
-                    b.HasOne("Hotel.Domain.Domain.Entities.Hotel", "Hotel")
-                        .WithMany("Contacts")
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+        modelBuilder.Entity("Hotel.Domain.Domain.Entities.Contact", b =>
+            {
+                b.HasOne("Hotel.Domain.Domain.Entities.Hotel", "Hotel")
+                    .WithMany("Contacts")
+                    .HasForeignKey("HotelId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("Hotel");
-                });
+                b.Navigation("Hotel");
+            });
 
-            modelBuilder.Entity("Hotel.Domain.Domain.Entities.Person", b =>
-                {
-                    b.HasOne("Hotel.Domain.Domain.Entities.Hotel", "Hotel")
-                        .WithMany("Persons")
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+        modelBuilder.Entity("Hotel.Domain.Domain.Entities.Person", b =>
+            {
+                b.HasOne("Hotel.Domain.Domain.Entities.Hotel", "Hotel")
+                    .WithMany("Persons")
+                    .HasForeignKey("HotelId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("Hotel");
-                });
+                b.Navigation("Hotel");
+            });
 
-            modelBuilder.Entity("Hotel.Domain.Domain.Entities.Hotel", b =>
-                {
-                    b.Navigation("Contacts");
+        modelBuilder.Entity("Hotel.Domain.Domain.Entities.Hotel", b =>
+            {
+                b.Navigation("Contacts");
 
-                    b.Navigation("Persons");
-                });
+                b.Navigation("Persons");
+            });
 #pragma warning restore 612, 618
-        }
     }
 }

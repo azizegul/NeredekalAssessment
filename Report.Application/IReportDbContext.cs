@@ -1,9 +1,8 @@
 ﻿using MongoDB.Driver;
 
-namespace Report.Application
+namespace Report.Application;
+
+public interface IReportDbContext
 {
-    public interface IReportDbContext
-    {
-        IMongoCollection<Domain.Entities.Report> Report { get; set; }
-    }
+    IMongoCollection<Domain.Entities.Report> Report { get; set; }
 }

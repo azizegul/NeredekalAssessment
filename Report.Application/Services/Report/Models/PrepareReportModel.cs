@@ -1,7 +1,6 @@
-﻿namespace Report.Application.Services.Report.Models
+﻿namespace Report.Application.Services.Report.Models;
+
+public class PrepareReportModel
 {
-    public class PrepareReportModel
-    {
-        public string ReportId { get; set; }
-    }
+    public string ReportId { get; set; }
 }
