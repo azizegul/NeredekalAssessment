@@ -10,7 +10,7 @@ Veritabanı olarak MSSQL ve MongoDb kullanılmıştır.
 * Message Broker -> Rabbitmq
 * Service Bus -> Mass Transit
 * Databases -> MSSQL and MongoDb
-* Open Doc -> Swagger and SwaggerForOcelot
+* Open Doc -> Swagger
 
 # Microservices
 
