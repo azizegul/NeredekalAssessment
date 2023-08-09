@@ -1,4 +1,4 @@
-# PhoneBook
+# Hotel
 
 Proje Code First mantığıyla oluşturulmuştur. 
 Veritabanı olarak MSSQL ve MongoDb kullanılmıştır. 
@@ -14,7 +14,7 @@ Veritabanı olarak MSSQL ve MongoDb kullanılmıştır.
 
 # Microservices
 
-### Contact Service
+### Hotel Service
   - Host: `https://localhost:7273`
 
 ### Report Service
