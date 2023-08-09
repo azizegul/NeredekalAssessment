@@ -4,28 +4,26 @@ using Report.Application.Services.Report.Interface;
 using Report.Application.Services.Report.Models;
 using Report.Domain.Events;
 
-namespace Report.Application.EventHandlers
+namespace Report.Application.EventHandlers;
+
+public class PrepareReportWhenReportCreatedConsumer : IConsumer<ReportCreated>
 {
-    public class PrepareReportWhenReportCreatedConsumer : IConsumer<ReportCreated>
+    private ILogger<PrepareReportWhenReportCreatedConsumer> _logger;
+
+    private readonly IReportService _reportService;
+
+    public PrepareReportWhenReportCreatedConsumer(ILogger<PrepareReportWhenReportCreatedConsumer> logger, IReportService reportService)
     {
-        private ILogger<PrepareReportWhenReportCreatedConsumer> _logger;
+        _logger = logger;
+        _reportService = reportService;
+    }
 
-        private readonly IReportService _reportService;
+    public async Task Consume(ConsumeContext<ReportCreated> context)
+    {
+        _logger.LogInformation("Starting prepare report data process");
 
-        public PrepareReportWhenReportCreatedConsumer(ILogger<PrepareReportWhenReportCreatedConsumer> logger, IReportService reportService)
-        {
-            _logger = logger;
-            _reportService = reportService;
-        }
+        await _reportService.PrepareReport(new PrepareReportModel { ReportId = context.Message.Id });
 
-
-        public async Task Consume(ConsumeContext<ReportCreated> context)
-        {
-            _logger.LogInformation("Starting prepare report data process");
-
-            await _reportService.PrepareReport(new PrepareReportModel { ReportId = context.Message.Id });
-
-            _logger.LogInformation("Process has been finished succesfully");
-        }
+        _logger.LogInformation("Process has been finished succesfully");
     }
 }

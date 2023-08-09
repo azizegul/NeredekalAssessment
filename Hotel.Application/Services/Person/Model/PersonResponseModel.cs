@@ -1,9 +1,8 @@
-﻿namespace Hotel.Application.Services.Person.Model
+﻿namespace Hotel.Application.Services.Person.Model;
+
+public class PersonResponseModel
 {
-    public class PersonResponseModel
-    {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string CompanyTitle { get; set; }
-    }
+    public string Name { get; set; }
+    public string Surname { get; set; }
+    public string CompanyTitle { get; set; }
 }

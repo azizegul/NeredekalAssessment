@@ -1,11 +1,10 @@
-﻿namespace Report.Application.Services.Report.Models
+﻿namespace Report.Application.Services.Report.Models;
+
+public class ReportDataDto
 {
-    public class ReportDataDto
-    {
-        public string Location { get; set; }
+    public string Location { get; set; }
 
-        public int RegisteredHotelCount { get; set; }
+    public int RegisteredHotelCount { get; set; }
 
-        public int RegisteredPhoneCount { get; set; }
-    }
+    public int RegisteredPhoneCount { get; set; }
 }

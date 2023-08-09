@@ -1,14 +1,13 @@
 ﻿using Report.Domain.Common;
 using Report.Domain.Enums;
 
-namespace Report.Domain.Entities
+namespace Report.Domain.Entities;
+
+public class Report : BaseEntity
 {
-    public class Report : BaseEntity
-    {
-        public DateTime RequestDate { get; set; }
+    public DateTime RequestDate { get; set; }
 
-        public ReportStatus Status { get; set; }
+    public ReportStatus Status { get; set; }
 
-        public ICollection<ReportData>? Data { get; set; }
-    }
+    public ICollection<ReportData>? Data { get; set; }
 }

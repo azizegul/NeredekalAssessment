@@ -19,9 +19,9 @@ public class HotelTests
 
         Hotel.Domain.Domain.Entities.Hotel hotel = null;
 
-        _hotelService.Setup(x => x.ContactDetails(hotelId)).ReturnsAsync(hotel);
+        _hotelService.Setup(x => x.Get(hotelId)).ReturnsAsync(hotel);
 
-        var result = await _controller.ContactDetails(hotelId);
+        var result = await _controller.Get(hotelId);
 
         Assert.IsType<NotFoundResult>(result);
     }
@@ -31,9 +31,9 @@ public class HotelTests
     {
         Guid hotelId = Guid.NewGuid();
 
-        _hotelService.Setup(x => x.ContactDetails(hotelId)).ReturnsAsync(hotel);
+        _hotelService.Setup(x => x.Get(hotelId)).ReturnsAsync(hotel);
 
-        var result = await _controller.ContactDetails(hotelId);
+        var result = await _controller.Get(hotelId);
 
         Assert.IsType<OkObjectResult>(result);
     }

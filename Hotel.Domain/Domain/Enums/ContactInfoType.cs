@@ -1,9 +1,8 @@
-﻿namespace Hotel.Domain.Domain.Enums
+﻿namespace Hotel.Domain.Domain.Enums;
+
+public enum ContactInfoType
 {
-    public enum ContactInfoType
-    {
-        Phone = 1,
-        Email = 2,
-        Location = 3
-    }
+    Phone = 1,
+    Email = 2,
+    Location = 3
 }
