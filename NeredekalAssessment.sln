@@ -17,13 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hotel", "Hotel", "{814F6661
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{75330712-0953-414B-AAD6-CA101E2BF549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Domain", "Report.Domain\Report.Domain.csproj", "{EDFF3E08-9585-4336-A5BD-AD93238AD8FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Report.Domain", "Report.Domain\Report.Domain.csproj", "{EDFF3E08-9585-4336-A5BD-AD93238AD8FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Infrastructure", "Report.Infrastructure\Report.Infrastructure.csproj", "{45D2A49E-8F21-4735-A88C-7906FE9A00A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Report.Infrastructure", "Report.Infrastructure\Report.Infrastructure.csproj", "{45D2A49E-8F21-4735-A88C-7906FE9A00A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Application", "Report.Application\Report.Application.csproj", "{CF453C03-F69E-41F6-9889-94B4565CF573}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Report.Application", "Report.Application\Report.Application.csproj", "{CF453C03-F69E-41F6-9889-94B4565CF573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Api", "Report.Api\Report.Api.csproj", "{13349A1A-E89E-4EE2-B909-D062631DEF39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Report.Api", "Report.Api\Report.Api.csproj", "{13349A1A-E89E-4EE2-B909-D062631DEF39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeredekalAssesment.Test", "NeredekalAssesment.Test\NeredekalAssesment.Test.csproj", "{1A31E0AB-1994-49E0-A77F-8493C73555B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{13349A1A-E89E-4EE2-B909-D062631DEF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13349A1A-E89E-4EE2-B909-D062631DEF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13349A1A-E89E-4EE2-B909-D062631DEF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A31E0AB-1994-49E0-A77F-8493C73555B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A31E0AB-1994-49E0-A77F-8493C73555B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A31E0AB-1994-49E0-A77F-8493C73555B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A31E0AB-1994-49E0-A77F-8493C73555B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

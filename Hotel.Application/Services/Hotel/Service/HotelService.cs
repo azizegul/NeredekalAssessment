@@ -31,8 +31,6 @@ namespace Hotel.Application.Services.Hotel.Service
 
         public async Task<Domain.Domain.Entities.Hotel> ContactDetails(Guid id)
         {
-            //TODO: Global query filter eklenecek.
-
             var hotelDetails = await _context.Hotels.Include(x => x.Contacts.Where(c => !c.IsDeleted)).FirstOrDefaultAsync(h => h.Id == id);
 
             return hotelDetails;

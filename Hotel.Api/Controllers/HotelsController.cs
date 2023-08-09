@@ -28,11 +28,16 @@ namespace Hotel.Api.Controllers
         [ProducesResponseType(typeof(Domain.Domain.Entities.Hotel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<Domain.Domain.Entities.Hotel> ContactDetails(Guid id)
+        public async Task<IActionResult> ContactDetails(Guid id)
         {
             var contactDetails = await _hotelService.ContactDetails(id);
 
-            return contactDetails;
+            if (contactDetails is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(contactDetails);
         }
 
 

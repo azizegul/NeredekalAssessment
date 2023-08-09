@@ -6,6 +6,5 @@
 
         public virtual ICollection<Contact> Contacts { get; set; }
         public virtual ICollection<Person> Persons { get; set; }
-
     }
 }
